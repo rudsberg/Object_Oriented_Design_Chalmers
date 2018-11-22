@@ -1,7 +1,7 @@
 import java.awt.*;
 
 /**
- *Scania is a specific non-abstract model of Truck which inherits everything from Truck.
+ *Scania is a specific type of non-abstract  {@link Truck} .
  */
 
 public class Scania extends Truck {
