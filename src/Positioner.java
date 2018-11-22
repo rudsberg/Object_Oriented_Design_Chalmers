@@ -40,6 +40,11 @@ public class Positioner implements Positionable {
         return y;
     }
 
+    /**
+     *
+     * A setter which is limited by a set distance @MAX_DISTANCE_CHANGE.
+     * @param x Distance you want to move the object.
+     */
     @Override
     public void setX(double x) {
         if (isTooFarAway(new Positioner(x, this.getY())))
@@ -47,7 +52,11 @@ public class Positioner implements Positionable {
 
         this.x = x;
     }
-
+    /**
+     *
+     * A setter which is limited by a set distance @MAX_DISTANCE_CHANGE.
+     * @param y Distance you want to move the object.
+     */
     @Override
     public void setY(double y) {
         if (isTooFarAway(new Positioner(this.getX(), y)))

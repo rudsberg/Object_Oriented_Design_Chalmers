@@ -12,6 +12,6 @@ public interface Loadables {
     int getMaxLoadAmount();
     int getMaxVehicleWeight();
     int getMaxDistanceToLoad();
-    int getMaxLoadCapacaty();
+    int getMaxLoadCapacity();
     int getAmountVehiclesLoaded();
 }

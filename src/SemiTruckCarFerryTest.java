@@ -120,7 +120,7 @@ class SemiTruckCarFerryTest {
     }
 
     private <V extends Vehicle & Loadables> void isSpecificFull(V loader) {
-        int maxCapacaty = loader.getMaxLoadCapacaty();
+        int maxCapacaty = loader.getMaxLoadCapacity();
         loader.openTruckBed();
 
         getCapacityTo(loader, maxCapacaty);

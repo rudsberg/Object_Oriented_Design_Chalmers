@@ -1,5 +1,10 @@
 import java.awt.*;
 
+/**
+ *Truck is an abstract class which extends {@link Car}. Truck has a TruckBed which it can open or close up to a certain
+ * degree and could therefore theoretically load its
+ */
+
 public abstract class Truck extends Car {
     private double truckBedAngle;
     protected final double MAX_TRUCK_BED_ANGLE;

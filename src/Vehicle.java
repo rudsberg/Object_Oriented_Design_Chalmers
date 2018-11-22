@@ -28,7 +28,7 @@ public abstract class Vehicle implements Movable, Positionable {
         this.direction = direction;
         this.weight = new Weight(weight);
     }
-
+//
     public Positioner getPosition() {
         return position;
     }
@@ -101,7 +101,7 @@ public abstract class Vehicle implements Movable, Positionable {
     }
 
     /**
-     * Turns to the other direction.
+     * Turns 180 degrees direction.
      */
     public void turn180Degress() {
         turnLeft();
@@ -172,7 +172,7 @@ public abstract class Vehicle implements Movable, Positionable {
     }
 
     /**
-     * Turns of the engine and sets the speed to 0.
+     * Turns off the engine and sets the speed to 0.
      */
     void stopEngine() {
         currentSpeed = 0;
@@ -184,7 +184,7 @@ public abstract class Vehicle implements Movable, Positionable {
      * Increments the speed depending on the cars speed factor, which is inherent to the car model.
      * It will not increase the speed if it exceeds maximum engine power.
      *
-     * @param amount of increase in speed between 0 and MAX_SPPED_CHANGE
+     * @param amount of increase in speed between 0 and MAX_SPEED_CHANGE
      */
     private void incrementSpeed(double amount) {
         double tempCurrentSpeed = getCurrentSpeed() + speedFactor() * amount;

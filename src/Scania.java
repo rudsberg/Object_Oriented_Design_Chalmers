@@ -1,5 +1,9 @@
 import java.awt.*;
 
+/**
+ *Scania is a specific non-abstract model of Truck which inherits everything from Truck.
+ */
+
 public class Scania extends Truck {
     private final static double MAX_TRUCK_BED_ANGLE = 70;
     private final static double MIN_TRUCK_BED_ANGLE = 0;
