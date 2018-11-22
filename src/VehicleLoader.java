@@ -1,5 +1,9 @@
 import java.util.*;
 
+/**
+ * A class primarly used by other classes to delegate functionality to load vehicles. A VehicleLoader can add vehicles
+ * and remove vehicles back-to-back and front-to-back.
+ */
 public class VehicleLoader implements Loadables {
     private final int MAX_DISTANCE_TO_LOAD;
     private final int MAX_ITEM_WEIGHT;
