@@ -24,7 +24,7 @@ public abstract class Vehicle implements Movable, Positionable {
         this.direction = direction;
         this.weight = new Weight(weight);
     }
-
+//
     public Positioner getPosition() {
         return position;
     }
