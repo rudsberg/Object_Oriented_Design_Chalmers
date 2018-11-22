@@ -1,7 +1,7 @@
 import java.util.*;
 
 /**
- * A class primarly used by other classes to delegate functionality to load vehicles. A VehicleLoader can add vehicles
+ * A class primarily used by other classes to delegate functionality to load vehicles. A VehicleLoader can add vehicles
  * and remove vehicles back-to-back and front-to-back.
  */
 public class VehicleLoader implements Loadables {
@@ -43,6 +43,10 @@ public class VehicleLoader implements Loadables {
         }
     }
 
+    /**
+     * Depending on the load type specified at creation it will return number of vehicles added to the loader.
+     * @return an int
+     */
     @Override
     public int getAmountVehiclesLoaded() {
         if (isBackToBackLoaded())
@@ -51,6 +55,10 @@ public class VehicleLoader implements Loadables {
             return frontToBackLoaded.size();
     }
 
+    /**
+     * If it is able to load: vehicle not too heavy, not in range, truck bed is closed or if it's fully loaded.
+     * @param v A Vehicle
+     */
     @Override
     public void loadVehicle(Vehicle v) {
         if (!canItLoad(v))
@@ -81,6 +89,11 @@ public class VehicleLoader implements Loadables {
         return !(isFull() || isTruckBedClosed() || tooHeavy || !inRange(vehicleToLoad));
     }
 
+    /**
+     * Removes a vehicle from the loader. Back-to-back it will remove the vehicle that was last loaded.
+     * Front-to-back will remove the vehicle that was last to be loaded. Can only unload if the truck bed
+     * is closed and there is one or more vehicles already loaded.
+     */
     @Override
     public void unLoadVehicle() {
         if (isTruckBedClosed() || getAmountVehiclesLoaded() <= 0)
@@ -98,11 +111,17 @@ public class VehicleLoader implements Loadables {
         loaderWeight.removeWeight(v.getWeight());
     }
 
+    /**
+     * Sets the truckBedState to CLOSED.
+     */
     @Override
     public void closeTruckBed() {
         truckBedState = TruckBedState.CLOSED;
     }
 
+    /**
+     * Sets the truckBedState to OPEN.
+     */
     @Override
     public void openTruckBed() {
         truckBedState = TruckBedState.OPEN;
@@ -116,6 +135,10 @@ public class VehicleLoader implements Loadables {
         return frontToBackLoaded.remove(0);
     }
 
+    /**
+     * Checks if loader has reached it's max load capacity.
+     * @return A boolean
+     */
     @Override
     public boolean isFull() {
         if (isBackToBackLoaded())
@@ -124,16 +147,29 @@ public class VehicleLoader implements Loadables {
             return frontToBackLoaded.size() >= MAX_LOAD_CAPACITY;
     }
 
+    /**
+     * Checks if the truck bed is closed.
+     * @return A boolean
+     */
     @Override
     public boolean isTruckBedClosed() {
         return truckBedState == TruckBedState.CLOSED;
     }
 
+    /**
+     * Checks if the truck bed is open.
+     * @return
+     */
     @Override
     public boolean isTruckBedOpen() {
         return truckBedState == TruckBedState.OPEN;
     }
 
+    /**
+     * Checks if the loader is in within a loadble distance with the vehicle passed.
+     * @param v A Positionable
+     * @return A boolean
+     */
     @Override
     public boolean inRange(Positionable v) {
         return MAX_DISTANCE_TO_LOAD >= Positioner.getDistanceBetween(position, v);

@@ -38,10 +38,9 @@ class ScaniaTest {
             s.setTruckBedAngle(minAngle + 1);
             assertEquals(minAngle + 1, s.getTruckBedAngle());
 
-            tempAngle = s.getTruckBedAngle();
             TestHelperFunctions.getSpeedTo(s, s.getEnginePower() / 2);
             s.setTruckBedAngle(middleAngle);
-            assertEquals(tempAngle, s.getTruckBedAngle());
+            assertEquals(s.getMinTruckBedAngle(), s.getTruckBedAngle());
         }
 
     }

@@ -6,11 +6,11 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SemiTruckCarFerryTest {
+class LoadersTest {
     List<SemiTruck> loaders = new ArrayList<>();
     List<CarFerry> carFerries = new ArrayList<>();
 
-    SemiTruckCarFerryTest() {
+    LoadersTest() {
         loaders.add(new VolvoSemiTruck(500, 60, Color.cyan, "", 2, 0, 0, Direction.DOWN, 15_000));
         carFerries.add(new CarFerry(4000, 5, Color.green, "my boat", 50, 50, Direction.RIGHT, 50, 7000, 50_000, 40));
     }
@@ -134,6 +134,25 @@ class SemiTruckCarFerryTest {
 
         getCapacityTo(loader, maxCapacaty / 2);
         assertFalse(loader.isFull());
+    }
+
+    @Test
+    void isTruckBedOpen() {
+        for (SemiTruck loader : loaders) {
+            isTruckBedOpenSpecifik(loader);
+        }
+
+        for (CarFerry carFerry : carFerries) {
+            isTruckBedOpenSpecifik(carFerry);
+        }
+    }
+
+    private <V extends Vehicle & Loadables> void isTruckBedOpenSpecifik(V loader) {
+        loader.openTruckBed();
+        assertTrue(loader.isTruckBedOpen());
+
+        loader.closeTruckBed();
+        assertTrue(loader.isTruckBedClosed());
     }
 
     private <V extends Vehicle & Loadables> void getReadyToLoad(V loader) {
