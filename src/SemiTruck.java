@@ -1,5 +1,9 @@
 import java.awt.Color;
 
+/**
+ * Semitruck inherits all functionalities from {@link Car} and {@link Vehicle}. It also implements from {@link Loadables}, it therefore
+ * has a functionalities to load other vehicles. Naturally, semi-trucks load from the back and removes items from the back.
+ */
 public abstract class SemiTruck extends Car implements Loadables {
     private VehicleLoader vehicleLoader;
 
@@ -12,16 +16,28 @@ public abstract class SemiTruck extends Car implements Loadables {
         return vehicleLoader;
     }
 
+    /**
+     * Delegates to {@see VehicleLoader#getAmountVehiclesLoaded()}
+     * @return
+     */
     @Override
     public int getAmountVehiclesLoaded() {
         return vehicleLoader.getAmountVehiclesLoaded();
     }
 
+    /**
+     * Delegates to {@see VehicleLoader#getMaxLoadCapacaty()}
+     * @return
+     */
     @Override
     public int getMaxLoadCapacaty() {
         return vehicleLoader.getMaxLoadCapacaty();
     }
 
+    /**
+     * Delegates to {@see VehicleLoader#startEngine()}
+     * @return
+     */
     @Override
     void startEngine() {
         closeTruckBed();

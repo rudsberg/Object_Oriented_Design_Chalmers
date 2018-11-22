@@ -3,6 +3,10 @@ import java.util.List;
 
 import static java.util.Arrays.asList;
 
+/**
+ * An abstract class representing a vehicle. It also implements from movable and positionable.
+ * It has a modelname, current direction, engine power, current speed, x and y position and a weight
+ */
 public abstract class Vehicle implements Movable, Positionable {
     private final static double MAX_SPEED_CHANGE = 1;
     private final String modelName; // The car model name
@@ -29,6 +33,11 @@ public abstract class Vehicle implements Movable, Positionable {
         return position;
     }
 
+    /**
+     * If vehicle is moving (ie speed greater than zero) it will return true else false.
+     *
+     * @return A boolean
+     */
     public boolean isVehicleMoving() {
         return this.currentSpeed > 0;
     }
@@ -37,6 +46,10 @@ public abstract class Vehicle implements Movable, Positionable {
         return MAX_SPEED_CHANGE;
     }
 
+    /**
+     * Given another positionable it will set the position equal to the active object (this).
+     * @param
+     */
     public void setsPositionToSameAs(Positionable loadedVehicle) {
         if (this == loadedVehicle)
             return;
@@ -44,9 +57,9 @@ public abstract class Vehicle implements Movable, Positionable {
         position.setsPositionToSameAs(loadedVehicle);
     }
 
-        /**
-         * Depending on the direction of travel and its current speed the car will change its x and y coordinates accordingly.
-         */
+    /**
+     * Depending on the direction of travel and its current speed the car will change its x and y coordinates accordingly.
+     */
     @Override
     public void move() {
         double x = getX();
@@ -87,6 +100,9 @@ public abstract class Vehicle implements Movable, Positionable {
         direction = directions.get((directions.indexOf(direction) + 1 + directions.size()) % directions.size());
     }
 
+    /**
+     * Turns to the other direction.
+     */
     public void turn180Degress() {
         turnLeft();
         turnLeft();
@@ -116,9 +132,13 @@ public abstract class Vehicle implements Movable, Positionable {
         return position.getY();
     }
 
-    public void setY(double y) { position.setY(y); }
+    public void setY(double y) {
+        position.setY(y);
+    }
 
-    public void setX(double x) { position.setX(x); }
+    public void setX(double x) {
+        position.setX(x);
+    }
 
     public double getEnginePower() {
         return enginePower;
@@ -163,6 +183,7 @@ public abstract class Vehicle implements Movable, Positionable {
     /**
      * Increments the speed depending on the cars speed factor, which is inherent to the car model.
      * It will not increase the speed if it exceeds maximum engine power.
+     *
      * @param amount of increase in speed between 0 and MAX_SPPED_CHANGE
      */
     private void incrementSpeed(double amount) {
@@ -177,6 +198,7 @@ public abstract class Vehicle implements Movable, Positionable {
     /**
      * Decrements the speed depending on the cars speed factor, which is inherent to the car model.
      * Decrementing the speed will not allow the car to travel backwards.
+     *
      * @param amount of increase in speed between 0 and MAX_SPPED_CHANGE
      */
     private void decrementSpeed(double amount) {
@@ -190,6 +212,7 @@ public abstract class Vehicle implements Movable, Positionable {
 
     /**
      * Increases the car speed if the amount parameter is within 0 and MAX_SPEED_CHANGE
+     *
      * @param amount the car should increase its speed
      */
     void gas(double amount) {
@@ -200,6 +223,7 @@ public abstract class Vehicle implements Movable, Positionable {
 
     /**
      * Decreases the car speed if the amount parameter is within 0 and MAX_SPEED_CHANGE
+     *
      * @param amount the car should decrease its speed
      */
     void brake(double amount) {
