@@ -151,7 +151,7 @@ public class VehicleLoader implements Loadables {
     }
 
     @Override
-    public int getMaxLoadCapacaty() {
+    public int getMaxLoadCapacity() {
         return MAX_LOAD_CAPACITY;
     }
 }

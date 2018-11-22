@@ -30,8 +30,8 @@ public abstract class SemiTruck extends Car implements Loadables {
      * @return
      */
     @Override
-    public int getMaxLoadCapacaty() {
-        return vehicleLoader.getMaxLoadCapacaty();
+    public int getMaxLoadCapacity() {
+        return vehicleLoader.getMaxLoadCapacity();
     }
 
     /**
