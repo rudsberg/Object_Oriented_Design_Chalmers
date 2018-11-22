@@ -1,5 +1,9 @@
 import java.awt.*;
 
+/**
+ * VolvoSemiTruck is a specific type of non-abstract {@link SemiTruck}.
+ */
+
 public class VolvoSemiTruck extends SemiTruck {
     private static final int MAX_LOAD_AMOUNT = 3;
     private static final int MAX_VEHICLE_SIZE = 5000;

@@ -1,3 +1,7 @@
+/**
+ * TestHelperFunctions is a class which is used in test methods throughout this project. It is made so that we
+ * are able to avoid having methods from other classes private.
+ */
 public class TestHelperFunctions {
     public static double getSpeedTo(Car c, double toThis) {
         double currentSpeed = c.getCurrentSpeed();
